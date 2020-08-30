@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="public">
+    <meta http-equiv="Expires" content="Thu, 01 Jan 2099 00:00:00 GMT">
+    <title>HTML url writer</title>
+    <script src="ext/lzma.js"></script>
+    <script src="ext/lzma.shim.js"></script>
+</head>
+<body>
+No content
+</body>
+<script>
+    window.onload = () => {
+        if (!window.location.hash) {
+            console.error("No data to parse");
+            return;
+        }
+        const base64 = window.location.hash.substring(1);
+        // noinspection JSCheckFunctionSignatures
+        const compressed = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+
+        const inStream = new LZMA.iStream(compressed);
+        const outStream = LZMA.decompressFile(inStream);
+        const html = outStream.toString();
+
+        document.open();
+        document.write(html);
+        document.close();
+    };
+</script>
+</html>
