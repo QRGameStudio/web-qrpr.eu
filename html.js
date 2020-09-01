@@ -11,7 +11,14 @@ window.onload = () => {
     const outStream = LZMA.decompressFile(inStream);
     const html = outStream.toString();
 
+    window.onload = null;
     document.open();
     document.write(html);
     document.close();
+    setTimeout(() => {
+        if (window.onload) {
+            window.onload();
+        }
+    });
 };
+
