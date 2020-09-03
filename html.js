@@ -17,7 +17,9 @@ window.onload = () => {
     document.close();
     setTimeout(() => {
         if (window.onload) {
+            // noinspection JSCheckFunctionSignatures
             window.onload();
+            new ENGINE().parseGameData();
         }
     });
 };
