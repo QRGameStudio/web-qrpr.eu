@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>QR Games Player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Game Player</title>
+    <link rel="stylesheet" href="index.css">
 
     <link rel="stylesheet" href="ext/bootstrap.min.css">
     <script src="ext/jquery.min.js"></script>
@@ -11,13 +12,18 @@
     <script src="ext/renderer.js"></script>
 
     <script src="lib/gamesStorage.js"></script>
-    <script src="lib/modals.js"></script>
-    <script src="lib/make-offline.js"></script>
     <script src="lib/GStorage.js"></script>
 
-    <script src="game.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
-No content
+<div class="container">
+    <h1>Saved games</h1>
+    <div class="card game-card" r-for="game of v.savedGames">
+        <div class="card-body" r-click="f.playGame(l.game)">
+            <h5 class="card-title" r-var="l.game.name"></h5>
+        </div>
+    </div>
+</div>
 </body>
 </html>

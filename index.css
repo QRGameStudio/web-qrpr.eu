@@ -1,0 +1,14 @@
+.card.game-card {
+    width: 20ex;
+    height: 20ex;
+}
+
+.game-card>.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.game-card>.card-body:hover {
+    background: #ccc;
+}
