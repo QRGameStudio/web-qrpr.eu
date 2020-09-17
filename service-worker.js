@@ -1,7 +1,9 @@
-const version = 'v0.5::2020-09-03::01::';
+const version = 'v0.5::2020-09-17::01::';
 const cached = [
     'html.html',
     'html.js',
+    'game.html',
+    'game.js',
     'service-worker.js',
     'lib/make-offline.js',
     'lib/engine.js',

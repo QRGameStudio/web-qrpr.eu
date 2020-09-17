@@ -1,4 +1,4 @@
-window.onload = () => {
+window.onload = async () => {
     if (!window.location.hash) {
         console.error("No data to parse");
         return;
@@ -10,17 +10,8 @@ window.onload = () => {
     const inStream = new LZMA.iStream(compressed);
     const outStream = LZMA.decompressFile(inStream);
     const html = outStream.toString();
-
-    window.onload = null;
-    document.open();
-    document.write(html);
-    document.close();
-    setTimeout(() => {
-        if (window.onload) {
-            // noinspection JSCheckFunctionSignatures
-            window.onload();
-            new ENGINE().parseGameData();
-        }
-    });
+    const storage = new Storage();
+    await storage.set('currentGame', html);
+    location.href = 'game.html';
 };
 
