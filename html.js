@@ -3,6 +3,7 @@ window.onload = async () => {
         console.error("No data to parse");
         return;
     }
+    document.body.innerText = '';
     const base64 = window.location.hash.substring(1);
     // noinspection JSCheckFunctionSignatures
     const compressed = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
