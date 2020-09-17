@@ -6,8 +6,6 @@ window.onload = async () => {
         return;
     }
 
-    storage.del('currentGame').then();
-
     window.onload = null;
     document.open();
     document.write(html);
