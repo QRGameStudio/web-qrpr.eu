@@ -12,4 +12,6 @@ window.onload = () => {
        };
        rendered.render();
     });
+
+    rendered.render();
 }

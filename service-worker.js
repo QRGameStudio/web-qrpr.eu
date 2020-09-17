@@ -1,4 +1,4 @@
-const version = 'v0.5::2020-09-17::04::';
+const version = 'v0.5::2020-09-17::05::';
 const cached = [
     'index.html',
     'index.js',
@@ -7,6 +7,9 @@ const cached = [
     'html.js',
     'game.html',
     'game.js',
+    'lib/popup.js',
+    'lib/popup.css',
+    'lib/GStorage.js',
     'lib/make-offline.js',
     'lib/gamesStorage.js',
     'lib/modals.html',
