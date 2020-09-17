@@ -12,3 +12,13 @@
 .game-card>.card-body:hover {
     background: #ccc;
 }
+
+h1 {
+    display: inline-block;
+}
+
+.by {
+    display: inline-block;
+    margin-left: 1ex;
+    font-style: italic;
+}

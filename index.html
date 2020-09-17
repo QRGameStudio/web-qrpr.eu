@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Your QR Games collection</h1>
+    <h1>Your QR Games collection</h1><p class="by">by <a href="http://qrgamestudio.com">qrgamestudio</a></p>
     <div class="card game-card" r-for="game of v.savedGames">
         <div class="card-body" r-click="f.playGame(l.game)">
             <h5 class="card-title" r-var="l.game.name"></h5>
