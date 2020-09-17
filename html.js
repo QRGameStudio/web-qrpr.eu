@@ -11,7 +11,7 @@ window.onload = async () => {
     const inStream = new LZMA.iStream(compressed);
     const outStream = LZMA.decompressFile(inStream);
     const html = outStream.toString();
-    const storage = new GStorage(true);
+    const storage = new GStorage("currentGame", true);
     await storage.set('currentGame', html);
     location.href = 'game.html';
 };

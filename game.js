@@ -1,5 +1,6 @@
 window.onload = async () => {
-    const storage = new GStorage(true);
+    const storage = new GStorage("currentGame", true);
+    const gamesStorage = new GamesStorage();
     const html = await storage.get('currentGame');
 
     if (!html) {
@@ -7,15 +8,11 @@ window.onload = async () => {
     }
 
     window.onload = null;
-    document.open();
-    document.write(html);
-    document.close();
-    setTimeout(() => {
-        if (window.onload) {
-            // noinspection JSCheckFunctionSignatures
-            window.onload();
-            new ENGINE().parseGameData();
-        }
-    });
+    await gamesStorage.setGameCode(html);
+    gamesStorage.saveGame().then((saved) => console.log('game saved successful:', saved));
+    if (window.onload) {
+        // noinspection JSCheckFunctionSignatures
+        window.onload();
+    }
 };
 
