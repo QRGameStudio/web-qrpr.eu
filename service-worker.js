@@ -4,7 +4,6 @@ const cached = [
     'html.js',
     'game.html',
     'game.js',
-    'service-worker.js',
     'lib/make-offline.js',
     'lib/engine.js',
     'lib/modals.html',
