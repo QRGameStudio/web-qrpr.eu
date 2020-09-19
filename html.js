@@ -13,6 +13,6 @@ window.onload = async () => {
     const html = outStream.toString();
     const storage = new GStorage("currentGame", true);
     await storage.set('currentGame', html);
-    location.href = 'game.html';
+    location.replace('game.html');
 };
 
