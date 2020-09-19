@@ -4,6 +4,7 @@ window.onload = async () => {
     const html = await storage.get('currentGame');
 
     if (!html) {
+        location.replace('index.html');
         return;
     }
 
