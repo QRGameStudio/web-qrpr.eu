@@ -10,7 +10,8 @@ window.onload = async () => {
 
     const inStream = new LZMA.iStream(compressed);
     const outStream = LZMA.decompressFile(inStream);
-    const html = outStream.toString();
+    const rawText = outStream.toString();
+    const html = new CodeMap(rawText).revert();
     const storage = new GStorage("currentGame", true);
     await storage.set('currentGame', html);
     location.replace('game.html');
