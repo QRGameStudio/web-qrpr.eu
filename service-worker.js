@@ -1,12 +1,14 @@
-const version = 'v2020-09-25::01::';
+const version = 'v2020-09-25::02::';
 const cached = [
     'index.html',
     'index.js',
     'index.css',
     'html.html',
+    'HTML.html',
     'html.js',
     'game.html',
     'game.js',
+    'editor.html',
     'lib/popup.js',
     'lib/popup.css',
     'lib/GStorage.js',
@@ -22,7 +24,8 @@ const cached = [
     'ext/jquery.min.js',
     'ext/lzma.js',
     'ext/lzma.shim.js',
-    'ext/renderer.js'
+    'ext/renderer.js',
+    'ext/base32.min.js'
 ];
 const isLocalhost = ['localhost', '127.0.0.1', '::1'].indexOf(location.host.split(":")[0].toLowerCase()) !== -1;
 
