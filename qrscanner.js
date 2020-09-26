@@ -42,8 +42,10 @@ function scanner() {
 if (window.cordova) {
     document.addEventListener('deviceready', () => scanner(), false);
 } else {
-    window.onload = () => {
-        window.QRScanner_SCAN_INTERVAL = 500;
+    window.onload = async () => {
+        const modals = new ModalService();
+        await modals.show("QRScanUnsuppWarn");
+        window.QRScanner_SCAN_INTERVAL = 200;
         scanner();
     }
 }

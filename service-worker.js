@@ -1,4 +1,4 @@
-const version = 'v2020-09-26::01::';
+const version = 'v2020-09-26::03::';
 const cached = [
     'index.html',
     'index.js',
@@ -10,6 +10,7 @@ const cached = [
     'game.js',
     'qrscanner.html',
     'qrscanner.js',
+    'qrscanner.css',
     'cordova.js',
     'editor.html',
     'lib/popup.js',

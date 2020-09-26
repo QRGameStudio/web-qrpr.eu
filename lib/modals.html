@@ -18,3 +18,30 @@
         </div>
     </div>
 </div>
+
+
+<!-- Unsupported QR scanning warning -->
+<div id="modal-QRScanUnsuppWarn" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Unsupported device</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Unfortunately, scanning from a web browser can be quite buggy. For better performance,
+                    please use external scanner
+                    (e. g. <a href="https://f-droid.org/en/packages/de.t_dankworth.secscanqr/" target="_blank">
+                        SecScanQR
+                    </a> for Android) or download the qrpr app.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="window.history.back()">Go back</button>
+            </div>
+        </div>
+    </div>
+</div>

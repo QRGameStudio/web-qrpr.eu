@@ -3,31 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>QRPR Scanner</title>
-    <script src="ext/cordova-plugin-qrscanner-lib.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="qrscanner.css">
     <script src="cordova.js"></script>
     <script src="qrscanner.js"></script>
-    <style>
-        body {
-            background: transparent;
-        }
+    <link rel="stylesheet" href="ext/bootstrap.min.css">
 
-        .zoomer-container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
+    <script src="ext/jquery.min.js"></script>
+    <script src="ext/bootstrap.min.js"></script>
+    <script src="ext/renderer.js"></script>
+    <script src="ext/cordova-plugin-qrscanner-lib.min.js"></script>
 
-        .zoomer {
-            border: 2px solid black;
-            width: calc(min(90vw, 90vh));
-            height: calc(min(90vw, 90vh));
-        }
-    </style>
+    <script src="lib/modals.js"></script>
 </head>
 <body>
 <div class="zoomer-container">
