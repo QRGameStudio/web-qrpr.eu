@@ -25,3 +25,11 @@ h1 {
     font-style: italic;
     align-self: end;
 }
+
+#scan {
+    font-size: 60px;
+    position: fixed;
+    right: 16px;
+    display: block;
+    bottom: 16px;
+}

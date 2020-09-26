@@ -1,4 +1,4 @@
-const version = 'v2020-09-25::02::';
+const version = 'v2020-09-26::01::';
 const cached = [
     'index.html',
     'index.js',
@@ -8,6 +8,9 @@ const cached = [
     'html.js',
     'game.html',
     'game.js',
+    'qrscanner.html',
+    'qrscanner.js',
+    'cordova.js',
     'editor.html',
     'lib/popup.js',
     'lib/popup.css',
@@ -25,7 +28,9 @@ const cached = [
     'ext/lzma.js',
     'ext/lzma.shim.js',
     'ext/renderer.js',
-    'ext/base32.min.js'
+    'ext/base32.min.js',
+    'ext/cordova-plugin-qrscanner-lib.min.js',
+    'ext/cordova-plugin-qrscanner-lib.min.js.map'
 ];
 const isLocalhost = ['localhost', '127.0.0.1', '::1'].indexOf(location.host.split(":")[0].toLowerCase()) !== -1;
 

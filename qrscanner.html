@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QRPR Scanner</title>
+    <script src="ext/cordova-plugin-qrscanner-lib.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="qrscanner.js"></script>
+    <style>
+        body {
+            background: transparent;
+        }
+
+        .zoomer-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .zoomer {
+            border: 2px solid black;
+            width: calc(min(90vw, 90vh));
+            height: calc(min(90vw, 90vh));
+        }
+    </style>
+</head>
+<body>
+<div class="zoomer-container">
+    <div class="zoomer"></div>
+</div>
+</body>
+</html>

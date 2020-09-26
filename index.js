@@ -14,4 +14,10 @@ window.onload = () => {
     });
 
     rendered.render();
+
+    const btnScan = document.getElementById('scan');
+    btnScan.onclick = () => {
+      window.location.href = 'qrscanner.html';
+    };
+    console.log('setup complete');
 }
