@@ -1,20 +1,66 @@
-body {
-    background: transparent;
+:root {
+    --size: calc(min(80vw, 80vh));
+    --left: calc((100vw - var(--size)) / 2);
+    --right: calc(var(--left) + var(--size));
+    --top: calc((100vh - var(--size)) / 2);
+    --bottom: calc(var(--top) + var(--size));
+    --line-width: 4px;
 }
 
 .zoomer-container {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
 }
 
 .zoomer {
-    border: 2px solid black;
-    width: calc(min(90vw, 90vh));
-    height: calc(min(90vw, 90vh));
+    border: 5px dotted #8b0697;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+}
+
+.line-vert {
+    position: absolute;
+    height: var(--line-width);
+    left: var(--left);
+    width: var(--size);
+    background: #c69500;
+    opacity: 0.5;
+    animation: move-vert 3.2s;
+    animation-iteration-count: infinite;
+}
+
+.line-horz {
+    position: absolute;
+    width: var(--line-width);
+    top: var(--top);
+    height: var(--size);
+    background: #11a500;
+    opacity: 0.5;
+    animation: move-horz 3.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes move-horz {
+    0%, 100% {
+        left: var(--left);
+    }
+    50% {
+        left: calc(var(--right) - var(--line-width));
+    }
+}
+
+
+@keyframes move-vert {
+    0%, 100% {
+        top: var(--top);
+    }
+    50% {
+        top: calc(var(--bottom) - var(--line-width));
+    }
 }
