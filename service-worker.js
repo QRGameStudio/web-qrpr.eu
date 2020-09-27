@@ -1,4 +1,4 @@
-const version = 'v2020-09-27::01::';
+const version = 'v2020-09-27::02::';
 const cached = [
     'index.html',
     'index.js',
@@ -34,6 +34,7 @@ const cached = [
     'ext/cordova-plugin-qrscanner-lib.min.js.map'
 ];
 const isLocalhost = ['localhost', '127.0.0.1', '::1'].indexOf(location.host.split(":")[0].toLowerCase()) !== -1;
+const cacheName = `${version}cache`;
 
 log = console.log;
 if (isLocalhost) {
@@ -44,7 +45,7 @@ self.addEventListener("install", function (event) {
     log('WORKER: install event in progress.');
     event.waitUntil(
         caches
-            .open(version + 'fundamentals')
+            .open( cacheName)
             .then(function (cache) {
                 return cache.addAll(cached);
             })
@@ -101,7 +102,7 @@ self.addEventListener("fetch", function(event) {
 
                     caches
                         // We open a cache to store the response for this request.
-                        .open(version + 'pages')
+                        .open(cacheName)
                         .then(function add(cache) {
                             cache.put(event.request, cacheCopy);
                         })
