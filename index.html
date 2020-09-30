@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="lib/popup.css">
 
     <link rel="stylesheet" href="ext/bootstrap.min.css">
     <script src="ext/jquery.min.js"></script>
@@ -15,6 +16,7 @@
     <script src="lib/gamesStorage.js"></script>
     <script src="lib/GStorage.js"></script>
     <script src="lib/make-offline.js"></script>
+    <script src="lib/popup.js"></script>
 
     <script src="index.js"></script>
     <script src="cordova.js"></script>
@@ -23,6 +25,12 @@
 <div class="container">
     <div class="row">
         <h1>Your QR Games collection</h1><p class="by">by <a href="http://qrgamestudio.com">qrgamestudio</a></p>
+    </div>
+    <div class="row" r-if="v.updates.length">
+        <button class="btn btn-primary btn-block" r-click="f.update()">
+            <span r-if="v.updates.length > 1">Updates are available for <span r-var="v.updates.length"></span> games!</span>
+            <span r-if="v.updates.length === 1">One of your games is ready for update</span>
+        </button>
     </div>
     <div class="row">
         <div class="card game-card" r-for="game of v.savedGames">

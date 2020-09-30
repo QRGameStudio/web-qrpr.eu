@@ -1,5 +1,5 @@
 window.onload = () => {
-    const rendered = new Renderer(document.body, {savedGames: []});
+    const rendered = new Renderer(document.body, {savedGames: [], updates: []});
     const gamesStorage = new GamesStorage();
 
     gamesStorage.getSavedGames().then((gamesDict) => {
@@ -11,6 +11,16 @@ window.onload = () => {
            gamesStorage.playGame(game.code).then();
        };
        rendered.render();
+    });
+
+    gamesStorage.findUpdates().then((upd) => {
+        rendered.variables.updates = upd;
+        rendered.functions.update = () => {
+            rendered.variables.updates = [];
+            rendered.render();
+            gamesStorage.updateGames(upd).then();
+        }
+        rendered.render();
     });
 
     rendered.render();
