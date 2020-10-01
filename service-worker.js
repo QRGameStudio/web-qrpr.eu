@@ -1,4 +1,4 @@
-const version = 'v2020-09-30::01::';
+const version = 'v2020-10-01::01::';
 const cached = [
     'index.html',
     'index.js',
@@ -22,6 +22,8 @@ const cached = [
     'lib/modals.js',
     'lib/musicComposer.js',
     'lib/codeMap.js',
+    'lib/themeProvider.css',
+    'lib/themeProvider.js',
     'ext/bootstrap.min.css',
     'ext/bootstrap.min.js',
     'ext/bootstrap.min.js.map',
