@@ -1,4 +1,9 @@
-:root {
-  --theme-primary: "#FFFFFF";
-  --theme-contrast: "#000000";
+body.theme-light {
+  --theme-primary: #FFF;
+  --theme-contrast: #000;
+}
+
+body.theme-dark {
+  --theme-primary: #212121;
+  --theme-contrast: #fff;
 }

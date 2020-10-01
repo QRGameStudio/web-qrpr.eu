@@ -33,3 +33,17 @@ h1 {
     display: block;
     bottom: 16px;
 }
+
+.theme-selector {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.theme-selector > button {
+    font-size: 80px;
+}
+
+.theme-selector > .sun {
+    color: #c69500;
+}
