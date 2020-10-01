@@ -22,9 +22,8 @@ window.onload = () => {
         rendered.functions.update = () => {
             rendered.variables.updates = [];
             rendered.render();
-            gamesStorage.updateGames(upd).then();
+            gamesStorage.updateGames(upd).then(() => renderGames());
         }
-        renderGames();
     });
 
     rendered.functions.applyTheme = (themeName) => {
