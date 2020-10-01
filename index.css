@@ -1,3 +1,8 @@
+html, body {
+    background: var(--theme-primary) !important;
+    color: var(--theme-contrast) !important;
+}
+
 .card.game-card {
     width: 16ex;
     height: 16ex;
@@ -10,6 +15,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-align: center;
 }
 .game-card>.card-body:hover {
     background: #ccc;
@@ -46,4 +52,11 @@ h1 {
 
 .theme-selector > .sun {
     color: #c69500;
+}
+
+.btn-icon {
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
