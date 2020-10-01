@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="lib/popup.css">
+    <link rel="stylesheet" href="lib/themeProvider.css">
 
     <link rel="stylesheet" href="ext/bootstrap.min.css">
     <script src="ext/jquery.min.js"></script>
@@ -17,11 +18,16 @@
     <script src="lib/GStorage.js"></script>
     <script src="lib/make-offline.js"></script>
     <script src="lib/popup.js"></script>
+    <script src="lib/themeProvider.js"></script>
 
     <script src="index.js"></script>
     <script src="cordova.js"></script>
 </head>
 <body>
+<div class="theme-selector">
+    <button class="btn sun" r-if="v.theme === 'light'" r-click="f.applyTheme('dark')">☀</button>
+    <button class="btn" r-if="v.theme === 'dark'"  r-click="f.applyTheme('light')">🌙</button>
+</div>
 <div class="container">
     <div class="row">
         <h1>Your QR Games collection</h1><p class="by">by <a href="http://qrgamestudio.com">qrgamestudio</a></p>

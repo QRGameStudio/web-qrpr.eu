@@ -1,5 +1,6 @@
 window.onload = () => {
-    const rendered = new Renderer(document.body, {savedGames: [], updates: []});
+    const theme = new GTheme();
+    const rendered = new Renderer(document.body, {savedGames: [], updates: [], theme: theme.get()});
     const gamesStorage = new GamesStorage();
 
     gamesStorage.getSavedGames().then((gamesDict) => {
@@ -23,6 +24,15 @@ window.onload = () => {
         rendered.render();
     });
 
+    rendered.functions.applyTheme = (themeName) => {
+        theme.apply(themeName);
+        theme.save(themeName).then(() => {
+            rendered.variables.theme = theme.get();
+            rendered.render();
+        });
+    };
+
+    theme.apply();
     rendered.render();
 
     const btnScan = document.getElementById('scan');

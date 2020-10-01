@@ -31,6 +31,7 @@ function openEditWindow() {
 window.onload = async () => {
     const storage = new GStorage("currentGame", true);
     const gamesStorage = new GamesStorage();
+    new GTheme().apply();
     const html = await storage.get('currentGame');
 
     if (!html) {
