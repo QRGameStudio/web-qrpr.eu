@@ -1,4 +1,4 @@
-const version = 'v2020-10-02::01::';
+const version = 'v2020-10-08::01::';
 const cached = [
     'index.html',
     'index.js',
@@ -24,6 +24,7 @@ const cached = [
     'lib/codeMap.js',
     'lib/themeProvider.css',
     'lib/themeProvider.js',
+    'lib/GMultiplayer.js',
     'ext/bootstrap.min.css',
     'ext/bootstrap.min.js',
     'ext/bootstrap.min.js.map',
@@ -33,7 +34,8 @@ const cached = [
     'ext/renderer.js',
     'ext/base32.min.js',
     'ext/cordova-plugin-qrscanner-lib.min.js',
-    'ext/cordova-plugin-qrscanner-lib.min.js.map'
+    'ext/cordova-plugin-qrscanner-lib.min.js.map',
+    'ext/peerjs.min.js'
 ];
 const isLocalhost = ['localhost', '127.0.0.1', '::1'].indexOf(location.host.split(":")[0].toLowerCase()) !== -1;
 const cacheName = `${version}cache`;
