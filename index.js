@@ -1,6 +1,6 @@
 window.onload = () => {
-    const theme = new GTheme();
-    const rendered = new Renderer(document.body, {savedGames: [], updates: [], theme: theme.get()});
+    new GTheme().apply();
+    const rendered = new Renderer(document.body, {savedGames: [], updates: []});
     const gamesStorage = new GamesStorage();
 
     function renderGames() {
@@ -25,16 +25,9 @@ window.onload = () => {
             gamesStorage.updateGames(upd).then(() => renderGames());
         }
     });
+    
+    rendered.functions.goToSettings = () => window.location.href = 'settings.html';
 
-    rendered.functions.applyTheme = (themeName) => {
-        theme.apply(themeName);
-        theme.save(themeName).then(() => {
-            rendered.variables.theme = theme.get();
-            rendered.render();
-        });
-    };
-
-    theme.apply();
     rendered.render();
 
     const btnScan = document.getElementById('scan');

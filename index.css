@@ -40,18 +40,10 @@ h1 {
     bottom: 16px;
 }
 
-.theme-selector {
+.settings {
     position: absolute;
-    top: 16px;
     right: 16px;
-}
-
-.theme-selector > button {
-    font-size: 80px;
-}
-
-.theme-selector > .sun {
-    color: #c69500;
+    font-size: 60px !important;
 }
 
 .btn-icon {

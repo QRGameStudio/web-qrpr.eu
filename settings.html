@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="lib/popup.css">
+    <link rel="stylesheet" href="lib/themeProvider.css">
+
+    <link rel="stylesheet" href="ext/bootstrap.min.css">
+    <script src="ext/jquery.min.js"></script>
+    <script src="ext/bootstrap.min.js"></script>
+    <script src="ext/renderer.js"></script>
+    <script src="ext/peerjs.min.js"></script>
+
+    <script src="lib/GStorage.js"></script>
+    <script src="lib/make-offline.js"></script>
+    <script src="lib/popup.js"></script>
+    <script src="lib/themeProvider.js"></script>
+    <script src="lib/GMultiplayer.js"></script>
+
+    <script src="settings.js"></script>
+    <script src="cordova.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>Your settings</h1>
+    </div>
+    <div class="row">
+        <div class="space-between" r-if="!v.onlineId">
+            <span>Not connected to the online</span>
+            <button r-if="!v.connectDisabled" class="btn" r-click="f.onlineConnect()">
+                Connect
+            </button>
+            <button r-if="v.connectDisabled" class="btn">Connecting</button>
+        </div>
+        <div class="space-between" r-if="!!v.onlineId">
+            <label>Your online id</label>
+            <span r-var="v.onlineId"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="space-between">
+            Select theme
+            <button class="btn" r-if="v.theme === 'light'" r-click="f.applyTheme('dark')">Light</button>
+            <button class="btn" r-if="v.theme === 'dark'" r-click="f.applyTheme('light')">Dark</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

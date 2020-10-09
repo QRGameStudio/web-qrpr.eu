@@ -24,10 +24,7 @@
     <script src="cordova.js"></script>
 </head>
 <body>
-<div class="theme-selector">
-    <button class="btn btn-icon sun" r-if="v.theme === 'light'" r-click="f.applyTheme('dark')">☀</button>
-    <button class="btn btn-icon" r-if="v.theme === 'dark'"  r-click="f.applyTheme('light')">🌙</button>
-</div>
+<button class="settings btn btn-icon" r-click="f.goToSettings()">⚙</button>
 <div class="container">
     <div class="row">
         <h1>Your QR Games collection</h1><p class="by">by <a href="http://qrgamestudio.com">qrgamestudio</a></p>

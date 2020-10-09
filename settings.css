@@ -1,0 +1,11 @@
+html, body {
+    background: var(--theme-primary) !important;
+    color: var(--theme-contrast) !important;
+}
+
+.space-between {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
