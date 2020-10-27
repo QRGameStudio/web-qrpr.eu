@@ -40,7 +40,7 @@
         </div>
         <div class="space-between" r-if="!!v.onlineId">
             <label>Your online id</label>
-            <span r-var="v.onlineId"></span>
+            <span class="clickable" r-var="v.onlineId" r-click="f.copyOnlineId()"></span>
         </div>
     </div>
     <div class="row">

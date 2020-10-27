@@ -26,6 +26,11 @@ window.onload = () => {
 
     renderer.functions.friendsEdit = () => friends.showFriendsModal({allowAdd: true, allowDelete: true});
 
+    renderer.functions.copyOnlineId = async () => {
+        await navigator.clipboard.writeText(renderer.variables.onlineId);
+        new Popup('Online ID copied', 2000).show();
+    };
+
     multiplayer.getSavedId().then((id) => {
         renderer.variables.onlineId = id;
         renderer.render();
