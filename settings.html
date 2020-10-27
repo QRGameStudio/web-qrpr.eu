@@ -20,6 +20,7 @@
     <script src="lib/popup.js"></script>
     <script src="lib/themeProvider.js"></script>
     <script src="lib/GMultiplayer.js"></script>
+    <script src="lib/modals.js"></script>
 
     <script src="settings.js"></script>
     <script src="cordova.js"></script>
@@ -40,6 +41,12 @@
         <div class="space-between" r-if="!!v.onlineId">
             <label>Your online id</label>
             <span r-var="v.onlineId"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="space-between">
+            Online friends
+            <button class="btn" r-click="f.friendsEdit()">Edit</button>
         </div>
     </div>
     <div class="row">

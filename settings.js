@@ -1,5 +1,6 @@
 window.onload = () => {
     const theme = new GTheme();
+    const friends = new GFriends();
     const renderer = new Renderer(document.body, {onlineId: null, theme: theme.get(), connectDisabled: false});
     const multiplayer = new GMP();
 
@@ -22,6 +23,8 @@ window.onload = () => {
             theme.apply();
         });
     };
+
+    renderer.functions.friendsEdit = () => friends.showFriendsModal({allowAdd: true, allowDelete: true});
 
     multiplayer.getSavedId().then((id) => {
         renderer.variables.onlineId = id;
