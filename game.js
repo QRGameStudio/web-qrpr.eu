@@ -67,9 +67,11 @@ window.onload = async () => {
         }
         console.log('game saved successful:', saved);
     });
+    window.addEventListener('error', (e,) => {
+        alert(`!Error!\n${e.lineno}:${e.filename}\n${e.message}`);
+    });
     if (window.onload) {
         // noinspection JSCheckFunctionSignatures
         window.onload();
     }
 };
-
