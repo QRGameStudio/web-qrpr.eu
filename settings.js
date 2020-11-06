@@ -33,8 +33,12 @@ window.onload = () => {
     };
 
     renderer.functions.addGame = async () => {
-        const code = await modal.prompt('Enter game content');
+        let code = await modal.prompt('Enter game content');
         if (code) {
+            const urlRe =  /^http.*?#(.*)$/.exec(code);
+            if (urlRe) {
+                code = urlRe[1];
+            }
             window.location.href = 'html.html#' + code;
         }
     };
