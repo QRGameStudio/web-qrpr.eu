@@ -24,8 +24,9 @@ window.onload = () => {
             rendered.render();
             gamesStorage.updateGames(upd).then(() => renderGames());
         }
+        rendered.render();
     });
-    
+
     rendered.functions.goToSettings = () => window.location.href = 'settings.html';
 
     rendered.render();
