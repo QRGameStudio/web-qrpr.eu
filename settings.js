@@ -3,6 +3,7 @@ window.onload = () => {
     const friends = new GFriends();
     const renderer = new Renderer(document.body, {onlineId: null, theme: theme.get(), connectDisabled: false});
     const multiplayer = new GMP();
+    const modal = new ModalService();
 
     renderer.functions.applyTheme = (themeName) => {
         theme.apply(themeName);
@@ -29,6 +30,13 @@ window.onload = () => {
     renderer.functions.copyOnlineId = async () => {
         await navigator.clipboard.writeText(renderer.variables.onlineId);
         new Popup('Online ID copied', 2000).show();
+    };
+
+    renderer.functions.addGame = async () => {
+        const code = await modal.prompt('Enter game content');
+        if (code) {
+            window.location.href = 'html.html#' + code;
+        }
     };
 
     multiplayer.getSavedId().then((id) => {

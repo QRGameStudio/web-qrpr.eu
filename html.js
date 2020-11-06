@@ -3,7 +3,12 @@ function Decompressor(compressedText) {
         text = text ? text : compressedText;
         // noinspection JSCheckFunctionSignatures
         const compressed = Uint8Array.from(atob(text), c => c.charCodeAt(0));
-        return this.lzma(compressed);
+        try {
+            return this.lzma(compressed);
+        } catch (e) {
+            console.error('LZMA decompression failed with', e);
+            return compressed;
+        }
     }
 
     this.base32 = (text=null) => {
@@ -19,8 +24,28 @@ function Decompressor(compressedText) {
         return outStream.toString();
     }
 
-    this.decompress = (text=null) => {
+    this.download = async (fragment=null) => {
+        fragment = fragment ? fragment : compressedText;
+        const data = JSON.parse(atob(fragment));
+        const id = data[0];
+        const secret = data.length > 1 ? data[1] : null;
+        const response = await fetch(`https://api.${window.location.host}/game/${id}/code`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                secret: secret
+            })
+        });
+        return await response.text();
+    }
+
+    this.decompress = async (text=null) => {
         text = text ? text : compressedText;
+        if (text.startsWith('==')) {
+            return await this.download(text.substring(2));
+        }
         if (text.startsWith('CB')) {
             return this.base32(text.substring(2));
         }
@@ -41,7 +66,11 @@ window.onload = async () => {
         return;
     }
     const decompressor = new Decompressor(hashData);
-    const decompressed = decompressor.decompress();
+    const decompressed = await decompressor.decompress();
+    if (!decompressed) {
+        console.error("Invalid data retrieved")
+        return;
+    }
     const html = new CodeMap(decompressed).revert();
     const storage = new GStorage("currentGame", true);
     await storage.set('currentGame', html);

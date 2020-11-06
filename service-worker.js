@@ -1,4 +1,4 @@
-const version = 'v2020-11-04::01::';
+const version = 'v2020-11-06::01::';
 const cached = [
     'index.html',
     'index.js',
