@@ -43,7 +43,7 @@ if (window.cordova) {
     document.addEventListener('deviceready', () => scanner(), false);
 } else {
     window.onload = async () => {
-        const modals = new ModalService();
+        const modals = new GModal();
         await modals.show("QRScanUnsuppWarn");
         window.QRScanner_SCAN_INTERVAL = 200;
         scanner();

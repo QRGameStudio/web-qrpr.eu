@@ -71,7 +71,7 @@ window.onload = async () => {
         console.error("Invalid data retrieved")
         return;
     }
-    const html = new CodeMap(decompressed).revert();
+    const html = new _GCodeMap(decompressed).revert();
     const storage = new GStorage("currentGame", true);
     await storage.set('currentGame', html);
     location.replace('game.html');

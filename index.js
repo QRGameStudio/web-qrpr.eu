@@ -1,7 +1,7 @@
 window.onload = () => {
     new GTheme().apply();
     const rendered = new Renderer(document.body, {savedGames: [], updates: []});
-    const gamesStorage = new GamesStorage();
+    const gamesStorage = new _GGamesStorage();
 
     function renderGames() {
         gamesStorage.getSavedGames().then((gamesDict) => {
