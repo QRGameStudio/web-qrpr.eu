@@ -1,4 +1,4 @@
-const version = 'v2020-11-22::02::';
+const version = 'v2020-11-22::03::';
 const cached = [
     'index.html',
     'index.js',
@@ -68,7 +68,6 @@ self.addEventListener("activate", function (event) {
     );
 });
 self.addEventListener("fetch", function(event) {
-
     if (event.request.method !== 'GET') {
         return;
     }
