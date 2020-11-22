@@ -35,5 +35,4 @@ window.onload = () => {
     btnScan.onclick = () => {
       window.location.href = 'qrscanner.html';
     };
-    console.log('setup complete');
 }
