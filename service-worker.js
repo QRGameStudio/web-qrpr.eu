@@ -1,4 +1,4 @@
-const version = 'v2020-11-23::02::';
+const version = 'v2020-11-23::03::';
 const cached = [
     'index.html',
     'index.js',
@@ -18,6 +18,7 @@ const cached = [
     'lib/GStorage.js',
     'lib/_GOffline.js',
     'lib/_GGamesStorage.js',
+    'lib/GGameData.js',
     'lib/GModal.html',
     'lib/GModal.js',
     'lib/GSound.js',
