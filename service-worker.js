@@ -1,4 +1,4 @@
-const version = 'v2020-11-23::01::';
+const version = 'v2020-11-23::02::';
 const cached = [
     'index.html',
     'index.js',
@@ -25,17 +25,17 @@ const cached = [
     'lib/GTheme.css',
     'lib/GTheme.js',
     'lib/GMultiplayer.js',
-    'ext/bootstrap.min.css',
-    'ext/bootstrap.min.js',
-    'ext/bootstrap.min.js.map',
-    'ext/jquery.min.js',
+    'ext/inj/bootstrap.min.css',
+    'ext/inj/bootstrap.min.js',
+    'ext/inj/bootstrap.min.js.map',
+    'ext/inj/jquery.min.js',
     'ext/lzma.js',
     'ext/lzma.shim.js',
-    'ext/renderer.js',
+    'ext/inj/renderer.js',
     'ext/base32.min.js',
     'ext/cordova-plugin-qrscanner-lib.min.js',
     'ext/cordova-plugin-qrscanner-lib.min.js.map',
-    'ext/peerjs.min.js'
+    'ext/inj/peerjs.min.js'
 ];
 const isLocalhost = ['localhost', '127.0.0.1', '::1'].indexOf(location.host.split(":")[0].toLowerCase()) !== -1;
 const cacheName = `${version}cache`;
