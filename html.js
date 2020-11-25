@@ -29,7 +29,7 @@ function Decompressor(compressedText) {
         const data = JSON.parse(atob(fragment));
         const id = data[0];
         const secret = data.length > 1 ? data[1] : null;
-        const response = await fetch(`https://api.${isLocalhost?'qrpr.eu':window.location.host}/game/${id}/code`, {
+        const response = await fetch(`https://api.qrpr.eu/game/${id}/code`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
