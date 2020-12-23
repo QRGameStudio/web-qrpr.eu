@@ -32,6 +32,11 @@ window.onload = () => {
         new GPopup('Online ID copied', 2000).show();
     };
 
+    renderer.functions.cacheEnable = (enable) => {
+        localStorage.setItem('pageCacheEnabled', enable ? '1' : '0');
+        renderer.render();
+    }
+
     renderer.functions.addGame = async () => {
         let code = await modal.prompt('Enter game content');
         if (code) {
