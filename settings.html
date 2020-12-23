@@ -22,6 +22,7 @@
     <script src="lib/GGameData.js"></script>
     <script src="lib/GMultiplayer.js"></script>
     <script src="lib/GModal.js"></script>
+    <script src="lib/GSound.js"></script>
 
     <script src="settings.js"></script>
     <script src="cordova.js"></script>
@@ -68,6 +69,13 @@
             Offline cache
             <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') === '0'" r-click="f.cacheEnable(true)">Enable</button>
             <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') !== '0'" r-click="f.cacheEnable(false)">Disable</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="space-between">
+            Music enabled
+            <button class="btn" r-if="!GVolume.prototype.create().musicEnabled" r-click="f.musicEnable(true)">Enable</button>
+            <button class="btn" r-if="GVolume.prototype.create().musicEnabled" r-click="f.musicEnable(false)">Disable</button>
         </div>
     </div>
 </div>

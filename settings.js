@@ -37,6 +37,11 @@ window.onload = () => {
         renderer.render();
     }
 
+    renderer.functions.musicEnable = async (enable) => {
+        await GVolume.prototype.create().setMusicEnabled(enable);
+        renderer.render();
+    }
+
     renderer.functions.addGame = async () => {
         let code = await modal.prompt('Enter game content');
         if (code) {
