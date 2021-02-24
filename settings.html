@@ -67,8 +67,8 @@
     <div class="row">
         <div class="space-between">
             Offline cache
-            <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') === '0'" r-click="f.cacheEnable(true)">Enable</button>
-            <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') !== '0'" r-click="f.cacheEnable(false)">Disable</button>
+            <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') !== '1'" r-click="f.cacheEnable(true)">Enable</button>
+            <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') === '1'" r-click="f.cacheEnable(false)">Disable</button>
         </div>
     </div>
     <div class="row">

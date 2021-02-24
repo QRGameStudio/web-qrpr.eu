@@ -1,4 +1,4 @@
-const version = 'v2020-12-23::01::';
+const version = 'v2021-02-24::01::';
 const cached = [
     'index.html',
     'index.js',
@@ -26,6 +26,7 @@ const cached = [
     'lib/GTheme.css',
     'lib/GTheme.js',
     'lib/GMultiplayer.js',
+    'lib/GUt.js',
     'ext/inj/bootstrap.min.css',
     'ext/inj/bootstrap.min.js',
     'ext/inj/bootstrap.min.js.map',
