@@ -73,9 +73,10 @@
     </div>
     <div class="row">
         <div class="space-between">
-            Music enabled
-            <button class="btn" r-if="!GVolume.prototype.create().musicEnabled" r-click="f.musicEnable(true)">Enable</button>
-            <button class="btn" r-if="GVolume.prototype.create().musicEnabled" r-click="f.musicEnable(false)">Disable</button>
+            Enabled sounds
+            <button class="btn" r-if="v.sound == 'off'" r-click="f.musicEnable(false)">None</button>
+            <button class="btn" r-if="v.sound == 'fx'" r-click="f.musicEnable(true)">Effects</button>
+            <button class="btn" r-if="v.sound == 'all'" r-click="f.musicEnable(null)">All</button>
         </div>
     </div>
 </div>
