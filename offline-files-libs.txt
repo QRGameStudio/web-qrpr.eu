@@ -1,0 +1,14 @@
+GGameData/GGameData.js
+GModal/GModal.html
+GModal/GModal.js
+GMultiplayer/GMultiplayer.js
+GPopup/GPopup.css
+GPopup/GPopup.js
+GSound/GSound.js
+GStorage/GStorage.js
+GTheme/GTheme.css
+GTheme/GTheme.js
+GUtils/GUt.js
+compile/build
+compile/builder.sh
+compile/clear

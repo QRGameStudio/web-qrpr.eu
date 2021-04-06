@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
     <link rel="stylesheet" href="settings.css">
-    <link rel="stylesheet" href="lib/_GPopup.css">
-    <link rel="stylesheet" href="lib/GTheme.css">
+    <link rel="stylesheet" href="https://lib.qrpr.eu/GPopup/GPopup.css">
+    <link rel="stylesheet" href="https://lib.qrpr.eu/GTheme/GTheme.css">
 
     <link rel="stylesheet" href="ext/inj/bootstrap.min.css">
     <script src="ext/inj/jquery.min.js"></script>
@@ -15,14 +15,14 @@
     <script src="ext/inj/renderer.js"></script>
     <script src="ext/inj/peerjs.min.js"></script>
 
-    <script src="lib/GStorage.js"></script>
+    <script src="https://lib.qrpr.eu/GStorage/GStorage.js"></script>
     <script src="lib/_GOffline.js"></script>
-    <script src="lib/GPopup.js"></script>
-    <script src="lib/GTheme.js"></script>
-    <script src="lib/GGameData.js"></script>
-    <script src="lib/GMultiplayer.js"></script>
-    <script src="lib/GModal.js"></script>
-    <script src="lib/GSound.js"></script>
+    <script src="https://lib.qrpr.eu/GPopup/GPopup.js"></script>
+    <script src="https://lib.qrpr.eu/GTheme/GTheme.js"></script>
+    <script src="https://lib.qrpr.eu/GGameData/GGameData.js"></script>
+    <script src="https://lib.qrpr.eu/GMultiplayer/GMultiplayer.js"></script>
+    <script src="https://lib.qrpr.eu/GModal/GModal.js"></script>
+    <script src="https://lib.qrpr.eu/GSound/GSound.js"></script>
 
     <script src="settings.js"></script>
     <script src="cordova.js"></script>
@@ -67,8 +67,7 @@
     <div class="row">
         <div class="space-between">
             Offline cache
-            <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') !== '1'" r-click="f.cacheEnable(true)">Enable</button>
-            <button class="btn" r-if="localStorage.getItem('pageCacheEnabled') === '1'" r-click="f.cacheEnable(false)">Disable</button>
+            <button class="btn" r-click="f.cacheRefresh()">Refresh</button>
         </div>
     </div>
     <div class="row">

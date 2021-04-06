@@ -33,9 +33,10 @@ window.onload = () => {
         new GPopup('Online ID copied', 2000).show();
     };
 
-    renderer.functions.cacheEnable = (enable) => {
-        localStorage.setItem('pageCacheEnabled', enable ? '1' : '0');
-        renderer.render();
+    renderer.functions.cacheRefresh = () => {
+        navigator.serviceWorker?.getRegistration('service-worker.js').then((registration) => {
+            registration.unregister().then(() => location.reload());
+        });
     }
 
     renderer.functions.musicEnable = async (enable) => {

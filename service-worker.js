@@ -1,74 +1,31 @@
-const version = 'v2021-02-24::01::';
-const cached = [
-    'index.html',
-    'index.js',
-    'index.css',
-    'html.html',
-    'HTML.html',
-    'html.js',
-    'game.html',
-    'game.js',
-    'qrscanner.html',
-    'qrscanner.js',
-    'qrscanner.css',
-    'cordova.js',
-    'editor.html',
-    'lib/GPopup.js',
-    'lib/_GPopup.css',
-    'lib/GStorage.js',
-    'lib/_GOffline.js',
-    'lib/_GGamesStorage.js',
-    'lib/GGameData.js',
-    'lib/GModal.html',
-    'lib/GModal.js',
-    'lib/GSound.js',
-    'lib/_GCodeMap.js',
-    'lib/GTheme.css',
-    'lib/GTheme.js',
-    'lib/GMultiplayer.js',
-    'lib/GUt.js',
-    'ext/inj/bootstrap.min.css',
-    'ext/inj/bootstrap.min.js',
-    'ext/inj/bootstrap.min.js.map',
-    'ext/inj/jquery.min.js',
-    'ext/lzma.js',
-    'ext/lzma.shim.js',
-    'ext/inj/renderer.js',
-    'ext/base32.min.js',
-    'ext/cordova-plugin-qrscanner-lib.min.js',
-    'ext/cordova-plugin-qrscanner-lib.min.js.map',
-    'ext/inj/peerjs.min.js'
-];
-const isLocalhost = ['localhost', '127.0.0.1', '::1'].indexOf(location.host.split(":")[0].toLowerCase()) !== -1;
-const cacheName = `${version}cache`;
-
+const cacheName = "offline-cache";
 
 self.addEventListener("install", function (event) {
+    console.log('[CACHE] installing');
     event.waitUntil(
         caches
-            .open( cacheName)
+            .open(cacheName)
             .then(function (cache) {
-                return cache.addAll(cached);
+                // refresh the cache
+                return new Promise(async (resolve) => {
+                    await Promise.all((await caches.keys()).map((key) => {
+                        cache.delete(key);
+                    }));
+
+                    const webFiles = (await (await fetch('offline-files-web.txt')).text())
+                        .split('\n').map((x) => x.trim()).filter((x) => x.length);
+                    const libsFiles = (await (await fetch('offline-files-libs.txt')).text())
+                        .split('\n').map((x) => x.trim()).filter((x) => x.length)
+                        .map((x) => 'https://lib.qrpr.eu/' + x);
+
+                    cache.addAll([...webFiles, ...libsFiles])
+                        .catch((e) =>  console.error(`[CACHE] Failed to add URL(s)`, e))
+                        .then(() => resolve());
+                });
             })
     );
 });
-self.addEventListener("activate", function (event) {
-    event.waitUntil(
-        caches
-            .keys()
-            .then(function (keys) {
-                return Promise.all(
-                    keys
-                        .filter(function (key) {
-                            return !key.startsWith(version);
-                        })
-                        .map(function (key) {
-                            return caches.delete(key);
-                        })
-                );
-            })
-    );
-});
+
 self.addEventListener("fetch", function(event) {
     if (event.request.method !== 'GET') {
         return;
@@ -78,27 +35,13 @@ self.addEventListener("fetch", function(event) {
         caches
             .match(event.request)
             .then(function(cached) {
-                const networked = fetch(event.request)
-                    .then(fetchedFromNetwork, unableToResolve)
-                    .catch(unableToResolve);
-
-                return cached || networked;
-
-                function fetchedFromNetwork(response) {
-                    const cacheCopy = response.clone();
-
-
-                    caches
-                        // We open a cache to store the response for this request.
-                        .open(cacheName)
-                        .then(function add(cache) {
-                            cache.put(event.request, cacheCopy);
-                        })
-                    return response;
+                if (cached) {
+                    return cached;
                 }
 
-                function unableToResolve () {
+                return fetch(event.request).catch(unableToResolve);
 
+                function unableToResolve () {
                     return new Response('<h1>Service Unavailable</h1>', {
                         status: 503,
                         statusText: 'Service Unavailable',
