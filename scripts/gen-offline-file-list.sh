@@ -6,7 +6,7 @@
   exit 1
 }
 DIR_SERVICE_WORKER="$(realpath .)"
-IGNORED_FILES="(offline-files-((web)|(libs)).txt)|(^\.)|(^scripts/)|(^LICENSE)|(^LICENSE)|(^README)|(^service-worker.js)"
+IGNORED_FILES="(offline-files-((web)|(libs)).txt)|(^\.)|(^scripts/)|(^LICENSE)|(^LICENSE)|(^README)|(^service-worker.js)|(^auto-update.txt)"
 
 git ls-files | grep -Ev "$IGNORED_FILES" > "$DIR_SERVICE_WORKER/offline-files-web.txt"
 cd ../web-libs || {
