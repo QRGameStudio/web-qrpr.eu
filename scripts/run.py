@@ -47,7 +47,7 @@ class MyServer(BaseHTTPRequestHandler):
 
 
 def main():
-    os.chdir(Path(argv[0]).parent.parent)
+    os.chdir(Path(argv[0]).absolute().parent.absolute().parent.absolute())
 
     assert Path('service-worker.js').is_file(), 'located in wrong directory'
 
