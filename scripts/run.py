@@ -19,7 +19,7 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'text/javascript')
             self.end_headers()
-            self.wfile.write(b'console.log("[CACHE] disabled by development server")')
+            self.wfile.write(b'console.debug("[CACHE] disabled by development server")')
             return
 
         file_path = self.path[1:]

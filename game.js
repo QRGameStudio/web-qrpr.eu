@@ -65,7 +65,7 @@ window.onload = async () => {
                 window.location.replace(window.location.pathname + '#' + gameData.id);
             }
         }
-        console.log('game saved successful:', saved);
+        console.debug('[GAME] game saved successful:', saved);
     });
     window.addEventListener('error', (e,) => {
         alert(`!Error!\n${e.lineno}:${e.filename}\n${e.message}`);
