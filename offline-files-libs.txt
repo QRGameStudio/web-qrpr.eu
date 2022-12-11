@@ -9,6 +9,7 @@ GStorage/GStorage.js
 GTheme/GTheme.css
 GTheme/GTheme.js
 GUtils/GUt.js
+GRenderer/GRenderer.js
 compile/build
 compile/builder.sh
 compile/clear
