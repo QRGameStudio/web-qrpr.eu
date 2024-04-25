@@ -8,6 +8,7 @@ GSound/GSound.js
 GStorage/GStorage.js
 GTheme/GTheme.css
 GTheme/GTheme.js
+GThread/GThread.js
 GUtils/GUt.js
 GRenderer/GRenderer.js
 compile/build
