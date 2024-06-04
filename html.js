@@ -41,10 +41,19 @@ function Decompressor(compressedText) {
         return await response.text();
     }
 
+    this.downloadCode = async (fragment=null) => {
+        fragment = fragment ? fragment : compressedText;
+        const response = await fetch(fragment);
+        return await response.text();
+    }
+
     this.decompress = async (text=null) => {
         text = text ? text : compressedText;
         if (text.startsWith('==')) {
             return await this.download(text.substring(2));
+        }
+        if (text.startsWith('@@')) {
+            return await this.downloadCode(text.substring(2));
         }
         if (text.startsWith('CB')) {
             return this.base32(text.substring(2));
