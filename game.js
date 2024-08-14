@@ -29,6 +29,7 @@ function openEditWindow() {
 }
 
 window.onload = async () => {
+    window.qrgames = {env: true};
     const storage = new GStorage("currentGame", true);
     const gamesStorage = new _GGamesStorage();
     new GTheme().apply();
@@ -73,5 +74,8 @@ window.onload = async () => {
     if (window.onload) {
         // noinspection JSCheckFunctionSignatures
         window.onload();
+    }
+    if (window.qrgames.onload) {
+        window.qrgames.onload();
     }
 };
