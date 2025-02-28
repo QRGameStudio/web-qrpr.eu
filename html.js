@@ -26,19 +26,7 @@ function Decompressor(compressedText) {
 
     this.download = async (fragment=null) => {
         fragment = fragment ? fragment : compressedText;
-        const data = JSON.parse(atob(fragment));
-        const id = data[0];
-        const secret = data.length > 1 ? data[1] : null;
-        const response = await fetch(`https://api.qrpr.eu/game/${id}/code`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                secret: secret
-            })
-        });
-        return await response.text();
+        return this.downloadCode(`https://games.qrpr.eu/${fragment}`);
     }
 
     this.downloadCode = async (fragment=null) => {
@@ -49,7 +37,7 @@ function Decompressor(compressedText) {
 
     this.decompress = async (text=null) => {
         text = text ? text : compressedText;
-        if (text.startsWith('==')) {
+        if (text.startsWith('RD')) {
             return await this.download(text.substring(2));
         }
         if (text.startsWith('@@')) {
