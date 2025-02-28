@@ -5,10 +5,12 @@ from mimetypes import guess_type
 from pathlib import Path
 from sys import argv
 from typing import Optional
+import urllib.request
+
 
 host = 'localhost'
 port = 5000
-
+autobuild_url = "http://localhost:3000/gameCodeRaw"
 
 class MyServer(BaseHTTPRequestHandler):
     web_libs_path: Optional[Path] = None
@@ -20,6 +22,13 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/javascript')
             self.end_headers()
             self.wfile.write(b'console.debug("[CACHE] disabled by development server")')
+
+        if self.path == '/_autobuild/game.html':
+            response = urllib.request.urlopen(autobuild_url)
+            self.send_response(response.getcode())
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(response.read())
             return
 
         file_path = self.path[1:]
