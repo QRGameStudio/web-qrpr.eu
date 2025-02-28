@@ -70,12 +70,16 @@ window.onload = async () => {
     });
     window.addEventListener('error', (e,) => {
         alert(`!Error!\n${e.lineno}:${e.filename}\n${e.message}`);
+        console.error(e);
     });
-    if (window.onload) {
+    if (window.qrgames.onload) {
+        console.debug('[GAME] Triggering QR onload');
+        window.qrgames.onload();
+    } else if (window.onload) {
+        console.debug('[GAME] Triggering onload');
         // noinspection JSCheckFunctionSignatures
         window.onload();
-    }
-    if (window.qrgames.onload) {
-        window.qrgames.onload();
+    } else {
+        console.debug('[GAME] No startup to triigger');
     }
 };
